@@ -1,22 +1,12 @@
 import pandas as pd
 import streamlit as st
 import seaborn as sns
-import seaborn as sns
 import numpy as np
 import os 
 from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
 from pycaret.classification import *  
-# from pycaret.classification import setup  
 import pycaret.classification as pc 
 import pycaret.regression as pr
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import GridSearchCV
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.svm import SVC
-from sklearn.preprocessing import RobustScaler
 from pycaret.classification import evaluate_model as evaluate_model
 from pycaret.regression import evaluate_model as evaluate_model1
 from sklearn.metrics import accuracy_score
