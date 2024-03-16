@@ -156,7 +156,7 @@ try:
             with col4:
                 st.write("your column types and names :")
                 st.write(column_types )
-      
+        
     with st.expander("##### Data Overview"):
         columns = []
         for colm in df.columns.values:
@@ -231,13 +231,14 @@ try:
         if st.session_state['save_model_btn']:
             user_inputs = {}
             st.subheader("Enter values for prediction:")
-            for column in df.columns:
-                if column != target_column:
-                    if df[column].dtype == "object":  # Categorical column with limited choices
-                        user_inputs[column] = st.selectbox(f"Select {column}", options=df[column].unique())
-                    else:  # Non-categorical column or categorical column with many choices
-                        user_inputs[column] = st.text_input(f"Enter value for {column}", value=df[column].iloc[0])
-            pred_btn = st.button("Predict",on_click=pred_func)
+            with st.form('prediction_form'):
+                for column in df.columns:
+                    if column != target_column:
+                        if df[column].dtype == "object": 
+                            user_inputs[column] = st.selectbox(f"Select {column}", options=df[column].unique())
+                        else:  
+                            user_inputs[column] = st.text_input(f"Enter value for {column}", value=df[column].iloc[0])
+                pred_btn = st.form_submit_button("Predict",on_click=pred_func)
         else:
             st.write('#### Create and Save your model first')
             st.write('please Create and Save your model first to be able to see the preditcion inputs')
