@@ -2,5 +2,4 @@ pandas
 plotly
 streamlit
 seaborn
-sklearn
 joblib
