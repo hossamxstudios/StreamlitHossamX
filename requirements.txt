@@ -3,3 +3,4 @@ streamlit
 plotly
 pycaret
 seaborn
+scikit-learn
