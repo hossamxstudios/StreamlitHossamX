@@ -3,7 +3,7 @@ import streamlit as st
 import seaborn as sns
 import numpy as np
 import os 
-from pycaret.classification import *  
+# from pycaret.classification import *  
 import pycaret.classification as pc 
 import pycaret.regression as pr
 from pycaret.classification import evaluate_model as evaluate_model
