@@ -1,7 +1,7 @@
 pandas
 streamlit
 plotly
-markupsafe==2.0.1
-pycaret==2.3.10
+markupsafe
+pycaret
 seaborn
 scikit-learn
