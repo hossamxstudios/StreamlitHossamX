@@ -8,7 +8,7 @@ import pycaret.classification as pc
 import pycaret.regression as pr
 from pycaret.classification import evaluate_model as evaluate_model
 from pycaret.regression import evaluate_model as evaluate_model1
-from joblib import dump, load
+import pickle as pkl
 
 @st.cache_data 
 def drop_missing_values():
@@ -214,9 +214,11 @@ try:
             if not isExist:
                 os.makedirs(model_folder)
                 st.write(f"The new directory {model_folder} is created!")
-            dump(best_model, f"{model_folder}{best_model}.joblib")
+            filename = 'best_model.sav'
+            pkl.dump(best_model, open(filename, 'wb'))
+            # pkl.dump(best_model, f"{model_folder}{best_model}.joblib")
             st.write(f"Model {best_model} is saved successfully") 
-            st.write(f"The best model is saved as {model_folder + model_filename}")
+            st.write(f"The best model is saved as {filename}")
             st.write(f"Model {best_model} is saved successfully") 
             if task=="classification":
                 predictions = pc.predict_model(best_model,data=df) 
@@ -245,7 +247,9 @@ try:
         
     if st.session_state['pred_btn']:
         with st.expander("##### Prediction Results"):
-            model = load(model_folder+model_filename)
+            filename = 'best_model.sav'
+            model = pkl.load(open(filename, 'rb'))
+            # model = pkl.load(model_folder+model_filename)
             input_data = pd.DataFrame([user_inputs])
             if task=="classification":
                 predictions = pc.predict_model(model,data=input_data) 
