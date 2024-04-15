@@ -5,9 +5,9 @@ import numpy as np
 import os 
 # from pycaret.classification import *  
 # import pycaret.classification as pc 
-import pycaret.regression as pr
-from pycaret.classification import evaluate_model as evaluate_model
-from pycaret.regression import evaluate_model as evaluate_model1
+# import pycaret.regression as pr
+# from pycaret.classification import evaluate_model as evaluate_model
+# from pycaret.regression import evaluate_model as evaluate_model1
 import pickle as pkl
 
 @st.cache_data 
